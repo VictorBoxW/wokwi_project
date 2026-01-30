@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "author": "Victor Rossetti",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 0.6, "left": 37.8, "attrs": {} },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -9.3,
+      "left": 378.6,
+      "attrs": { "temperature": "80", "humidity": "0" }
+    },
+    {
+      "type": "wokwi-7segment",
+      "id": "sevseg1",
+      "top": -147.78,
+      "left": 250.72,
+      "attrs": { "digits": "3", "colon": "", "common": "cathode" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 258.6,
+      "left": 51,
+      "rotate": 90,
+      "attrs": { "color": "blue", "xray": "1", "bounce": "1" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn2",
+      "top": 258.6,
+      "left": 348.6,
+      "rotate": 90,
+      "attrs": { "color": "red", "xray": "1", "key": "2" }
+    },
+    { "type": "wokwi-led", "id": "led1", "top": -90, "left": 90.2, "attrs": { "color": "red" } }
+  ],
+  "connections": [
+    [ "uno:5V", "dht1:VCC", "red", [ "v28.7", "h205.4" ] ],
+    [ "dht1:GND", "uno:GND.3", "black", [ "v96", "h-205.6" ] ],
+    [ "dht1:SDA", "uno:A0", "green", [ "v105.6", "h-166.9" ] ],
+    [ "uno:GND.1", "sevseg1:COM", "black", [ "v-9.6", "h153.9" ] ],
+    [ "sevseg1:A", "uno:2", "#8f4814", [ "h-96", "v105.6", "h72.7" ] ],
+    [ "sevseg1:B", "uno:3", "red", [ "v-9.6", "h67.2", "v115.2", "h-148" ] ],
+    [ "sevseg1:C", "uno:4", "orange", [ "v27.96", "h-80.7" ] ],
+    [ "sevseg1:D", "uno:5", "gold", [ "v18.36", "h-71" ] ],
+    [ "sevseg1:E", "uno:6", "green", [ "v8.76", "h-70.9" ] ],
+    [ "sevseg1:F", "uno:7", "blue", [ "v-9.6", "h-96", "v96", "h-3.6" ] ],
+    [ "sevseg1:G", "uno:8", "violet", [ "v56.76", "h-134.8" ] ],
+    [ "uno:GND.3", "btn2:2.l", "black", [ "v57.5", "h340.2" ] ],
+    [ "btn2:1.l", "uno:A1", "red", [ "v-19.2", "h-48" ] ],
+    [ "uno:GND.3", "btn1:2.l", "black", [ "v38.3", "h-187.8" ] ],
+    [ "btn1:1.l", "uno:A2", "blue", [ "v-9.6", "h134.4" ] ],
+    [ "uno:GND.1", "led1:C", "black", [ "v-19.2", "h-86.5" ] ],
+    [ "sevseg1:DIG1", "uno:9", "gray", [ "v-19.2", "h-106.4" ] ],
+    [ "sevseg1:DIG2", "uno:10", "white", [ "v-28.8", "h-135.1" ] ],
+    [ "sevseg1:DIG3", "uno:12", "cyan", [ "v-38.4", "h-163.7" ] ],
+    [ "uno:11", "led1:A", "blue", [ "v-28.8", "h-105" ] ]
+  ],
+  "dependencies": {}
+}
